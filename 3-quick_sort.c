@@ -1,8 +1,10 @@
 #include "sort.h"
 
 /**
- *
- *
+ *quick_sort -  sorts array of integers, ascending order using the Quick sort
+ *@array: array of integers
+ *@size: # of elements in array
+ *Return: void
  */
 void quick_sort(int *array, size_t size)
 {
@@ -12,9 +14,17 @@ void quick_sort(int *array, size_t size)
 	partition(array, size, array, size);
 }
 
+/**
+ *partition - sorts 2 subarrays form quick_sort input
+ *@array: original array for printing
+ *@size: size of array
+ *@vector: copy of array to make partitions
+ *@len: size of each partition
+ *Return: void
+ */
 void partition(int *array, size_t size, int *vector, size_t len)
 {
-	
+
 	size_t low = 0, high = len - 1, i, j;
 	int pivot = 0, swap = 0;
 
