@@ -8,7 +8,7 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *check, *aux, *back;
+	listint_t *check = NULL, *aux = NULL, *back = NULL;
 
 	if (list == NULL || *list == NULL)
 		return;
@@ -34,7 +34,7 @@ void insertion_sort_list(listint_t **list)
 		}
 		else
 			check = check->next;
-}
+	}
 
 }
 
@@ -77,5 +77,5 @@ void swap_backwards(listint_t **list, listint_t *back, listint_t *aux)
 		aux->prev->next = aux;
 	if (back == *list)
 		*list = aux;
-		print_list(*list);
+	print_list(*list);
 }
