@@ -27,4 +27,8 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
+void merge_sort(int *array, size_t size);
+void print_side(int *array, size_t size);
+void split_and_merge(int *array, size_t size, int *copy);
+void copy_array(int *array, size_t size, int *copy);
 #endif
