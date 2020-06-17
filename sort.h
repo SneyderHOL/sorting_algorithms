@@ -37,6 +37,8 @@ void copy_array(int *array, size_t size, int *copy);
 void merge_sort(int *array, size_t size);
 void comp_swap(int *array, int i, int j, int dir);
 void bitonic_merge(int *array, int low, size_t size, int dir);
+void radix_sort(int *array, size_t size);
+void sort_digit(int *array, size_t size, int radix, int div);
 void bitonic_up(int *array, int low, size_t size, int dir);
 void bitonic_sort(int *array, size_t size);
 #endif
