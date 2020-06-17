@@ -11,7 +11,12 @@ void merge_sort(int *array, size_t size)
 {
 	int *copy = NULL;
 
+	copy = malloc(sizeof(int) * size);
+	if (copy == NULL)
+		return;
+	copy_array(array, size, copy);
 	split_and_merge(array, size, copy);
+	free(copy);
 }
 /**
  * split_and_merge - function that splits and merge two arrays
@@ -22,26 +27,21 @@ void merge_sort(int *array, size_t size)
  */
 void split_and_merge(int *array, size_t size, int *copy)
 {
-	int *s_copy = NULL;
 	size_t n = 0, i = 0, j = 0, k = 0;
 
 	if (array == NULL || size <= 1)
 		return;
 
-	copy = malloc(sizeof(int) * size);
-	if (copy == NULL)
-		return;
-
 	n = size / 2;
-	split_and_merge(array, n, s_copy);
-	split_and_merge(array + n, size - n, s_copy);
-	copy_array(array, size, copy);
+	split_and_merge(array, n, copy);
+	split_and_merge(array + n, size - n, copy + n);
+
 	printf("Merging...\n");
 	printf("[left]: ");
 	print_side(array, n);
 	printf("[right]: ");
 	print_side(array + n, size - n);
-
+	copy_array(array, size, copy);
 	j = 0;
 	k = n;
 	for (i = 0; i < size; i++)
@@ -59,7 +59,6 @@ void split_and_merge(int *array, size_t size, int *copy)
 	}
 	printf("[Done]: ");
 	print_side(array, size);
-	free(copy);
 }
 /**
  * print_side - function that prints an array
