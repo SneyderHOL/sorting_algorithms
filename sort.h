@@ -21,8 +21,7 @@ void partition(int *array, size_t size, int *vector, size_t len);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
-void swap_forward(listint_t **list, listint_t *check, listint_t *aux);
-void swap_backwards(listint_t **list, listint_t *back, listint_t *aux);
+void swap(listint_t **list, listint_t *check, listint_t *aux);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
@@ -31,5 +30,10 @@ void counting_sort(int *array, size_t size);
 void sift_down(int *array, size_t size, int len, size_t size1);
 void make_heap(int *array, size_t size);
 void heap_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
+void merge_sort(int *array, size_t size);
+void print_side(int *array, size_t size);
+void split_and_merge(int *array, size_t size, int *copy);
+void copy_array(int *array, size_t size, int *copy);
 
 #endif
