@@ -35,4 +35,8 @@ void print_side(int *array, size_t size);
 void split_and_merge(int *array, size_t size, int *copy);
 void copy_array(int *array, size_t size, int *copy);
 void merge_sort(int *array, size_t size);
+void comp_swap(int *array, int i, int j, int dir);
+void bitonic_merge(int *array, int low, size_t size, int dir);
+void bitonic_up(int *array, int low, size_t size, int dir);
+void bitonic_sort(int *array, size_t size);
 #endif
