@@ -30,7 +30,10 @@ void counting_sort(int *array, size_t size)
 	print_array(count, max + 1);
 	sorted = malloc(sizeof(int) * size);
 	if (!sorted)
+	{
+		free(count);
 		return;
+	}
 	for (i = j - 1; i >= 0; i--)
 	{
 		sorted[count[array[i]] - 1] = array[i];
