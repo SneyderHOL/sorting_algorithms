@@ -6,6 +6,7 @@
  *@i: fisrt element in array to be compared
  *@j: second element in array to be compared
  *@dir: 1 for ascending order, 0 descending order
+ *@size_f: #of elements in array
  *Return:void
  */
 void comp_swap(int *array, int i, int j, int dir, size_t size_f)
@@ -41,6 +42,7 @@ void comp_swap(int *array, int i, int j, int dir, size_t size_f)
  *@low: base value to start ascending order
  *@size: #of elements in array
  *@dir: 1 for ascending order, 0 descending order
+ *@size_f: #of elements in array
  *Return:void
  */
 void bitonic_merge(int *array, int low, size_t size, int dir, size_t size_f)
@@ -61,6 +63,7 @@ void bitonic_merge(int *array, int low, size_t size, int dir, size_t size_f)
  *@low: base value to start ascending order
  *@size: #of elements in array
  *@dir: 1 for ascending order, 0 descending order
+ *@size_f: #of elements in array
  *Return:void
  */
 void bitonic_up(int *array, int low, size_t size, int dir, size_t size_f)
