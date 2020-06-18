@@ -35,10 +35,10 @@ void print_side(int *array, size_t size);
 void split_and_merge(int *array, size_t size, int *copy);
 void copy_array(int *array, size_t size, int *copy);
 void merge_sort(int *array, size_t size);
-void comp_swap(int *array, int i, int j, int dir);
-void bitonic_merge(int *array, int low, size_t size, int dir);
+void comp_swap(int *array, int i, int j, int dir, size_t size_f);
+void bitonic_merge(int *array, int low, size_t size, int dir, size_t size_f);
 void radix_sort(int *array, size_t size);
 void sort_digit(int *array, size_t size, int radix, int div);
-void bitonic_up(int *array, int low, size_t size, int dir);
+void bitonic_up(int *array, int low, size_t size, int dir, size_t size_f);
 void bitonic_sort(int *array, size_t size);
 #endif

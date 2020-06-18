@@ -8,15 +8,30 @@
  *@dir: 1 for ascending order, 0 descending order
  *Return:void
  */
-void comp_swap(int *array, int i, int j, int dir)
+void comp_swap(int *array, int i, int j, int dir, size_t size_f)
 {
-	int swap = 0;
+	int swaped = 0, dist = 0, k = 0;
 
-	if (dir == (array[i] > array[j]))
+	dist = j / 2;
+	for (k = i; k < dist; k++)
 	{
-		swap = array[j];
-		array[j] = array[i];
-		array[i] = swap;
+		if ((array[k] > array[k + dist]) && dir)
+		{
+			swaped = array[k + dist];
+			array[k + dist] = array[k];
+			array[k] = swaped;
+			printf("Result [%d / %d] (UP):\n", j, (int)size_f);
+			print_array(array, (size_t)j);
+		}
+		else if (!(array[k] > array[k + dist]) && !dir)
+		{
+			swaped = array[k + dist];
+			array[k + dist] = array[k];
+			array[k] = swaped;
+			printf("Result [%d / %d] (DOWN):\n", j, (int)size_f);
+			print_array(array, (size_t)j);
+		}
+
 	}
 }
 
@@ -28,21 +43,16 @@ void comp_swap(int *array, int i, int j, int dir)
  *@dir: 1 for ascending order, 0 descending order
  *Return:void
  */
-void bitonic_merge(int *array, int low, size_t size, int dir)
+void bitonic_merge(int *array, int low, size_t size, int dir, size_t size_f)
 {
 	int i = low, k = 0;
 
 	if (size > 1)
 	{
 		k = size / 2;
-		for (; i < low + k; i++)
-		{
-			comp_swap(array, i, i + k, dir);
-			bitonic_merge(array, low, k, dir);
-			print_array(array, size);
-			bitonic_merge(array, low + k, k, dir);
-
-		}
+		comp_swap(array, i, size, dir, size_f);
+		bitonic_merge(array, low, k, dir, size_f);
+		bitonic_merge(array, low + k, k, dir, size_f);
 	}
 }
 /**
@@ -53,18 +63,26 @@ void bitonic_merge(int *array, int low, size_t size, int dir)
  *@dir: 1 for ascending order, 0 descending order
  *Return:void
  */
-void bitonic_up(int *array, int low, size_t size, int dir)
+void bitonic_up(int *array, int low, size_t size, int dir, size_t size_f)
 {
-	int k = 0;
+	int k = (int)size;
 
-	printf("Merging [%d / %d] (UP):\n", k, k);
-	print_array(array, size);
 	if (size > 1)
 	{
+		if (dir == 1)
+		{
+			printf("Merging [%d / %d] (UP):\n", k, (int)size_f);
+			print_array(array, size);
+		}
+		else
+		{
+			printf("Merging [%d / %d] (DOWN):\n", k, (int)size_f);
+			print_array(array, size);
+		}
 		k = size / 2;
-		bitonic_up(array, low, k, 1);
-		bitonic_up(array, low + k, k, 0);
-		bitonic_merge(array, low, size, dir);
+		bitonic_up(array, low, k, 1, size_f);
+		bitonic_up(array, low + k, k, 0, size_f);
+		bitonic_merge(array, low, size, dir, size_f);
 	}
 }
 /**
@@ -79,5 +97,5 @@ void bitonic_sort(int *array, size_t size)
 
 	if (array == NULL || size <= 1)
 		return;
-	bitonic_up(array, 0, size, up);
+	bitonic_up(array, 0, size, up, size);
 }
