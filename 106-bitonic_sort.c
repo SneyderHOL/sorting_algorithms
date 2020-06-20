@@ -50,7 +50,7 @@ void bitonic_merge(int *array, size_t size, int dir)
  *@array: array of integers to be sorted
  *@low: base value to start ascending order
  *@size: #of elements in array
- *@dir: 1 for ascending order, 0 descending order
+ *@dir: 1 for ascending order, 0 for descending order
  *@size_f: #of elements in array
  *Return:void
  */
