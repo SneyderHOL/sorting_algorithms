@@ -3,10 +3,8 @@
 /**
  *comp_swap - compares 2 array elements and swaps if condition is true
  *@array: array of integers to be sorted
- *@i: fisrt element in array to be compared
  *@j: second element in array to be compared
  *@dir: 1 for ascending order, 0 descending order
- *@size_f: #of elements in array
  *Return:void
  */
 void comp_swap(int *array, int j, int dir)
@@ -32,10 +30,8 @@ void comp_swap(int *array, int j, int dir)
 /**
  *bitonic_merge - splits array in 2 subarray recursively
  *@array: array of integers to be sorted
- *@low: base value to start ascending order
  *@size: #of elements in array
  *@dir: 1 for ascending order, 0 descending order
- *@size_f: #of elements in array
  *Return:void
  */
 void bitonic_merge(int *array, size_t size, int dir)
@@ -48,7 +44,6 @@ void bitonic_merge(int *array, size_t size, int dir)
 /**
  *bitonic_up - splits array in 2 subarray recursively
  *@array: array of integers to be sorted
- *@low: base value to start ascending order
  *@size: #of elements in array
  *@dir: 1 for ascending order, 0 for descending order
  *@size_f: #of elements in array
