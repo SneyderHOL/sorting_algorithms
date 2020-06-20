@@ -56,18 +56,18 @@ void bitonic_up(int *array, size_t size, int dir, size_t size_f)
 	if (size <= 1)
 		return;
 	if (dir == 1)
-		printf("Merging [%d / %d] (UP):\n", k, (int)size_f);
+		printf("Merging [%d/%d] (UP):\n", k, (int)size_f);
 	else
-		printf("Merging [%d / %d] (DOWN):\n", k, (int)size_f);
+		printf("Merging [%d/%d] (DOWN):\n", k, (int)size_f);
 	print_array(array, size);
 	k = size / 2;
 	bitonic_up(array, k, 1, size_f);
 	bitonic_up(&(*(array + k)), size - k, 0, size_f);
 	bitonic_merge(array, size, dir);
 	if (dir == 1)
-		printf("Result [%d / %d] (UP):\n", (int)size, (int)size_f);
+		printf("Result [%d/%d] (UP):\n", (int)size, (int)size_f);
 	else
-		printf("Result [%d / %d] (DOWN):\n", (int)size, (int)size_f);
+		printf("Result [%d/%d] (DOWN):\n", (int)size, (int)size_f);
 	print_array(array, size);
 }
 /**
